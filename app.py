@@ -34,7 +34,7 @@ def GetCryptoPrices():
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     # parse response as a JSON object
-    JSONResult = json.load(response.text)
+    JSONResult = json.loads(response.text)
 
     history = JSONResult["data"]["history"]
     prices = []
@@ -58,3 +58,7 @@ Do I buy or sell?
 Please be as detailed, and explain in a way any beginner can understand.
 Here is the price list: {bitcoinPrices}
 """
+
+analysis = BasicGeneration(chatGPTPrompt)
+
+print(analysis)
