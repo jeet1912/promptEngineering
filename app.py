@@ -18,7 +18,7 @@ response = BasicGeneration(prompt)
 print(response)
 """
 
-def getCryptoPrices():
+def GetCryptoPrices():
 
     # define api endpoint and query params
     url = "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history"
@@ -46,3 +46,15 @@ def getCryptoPrices():
     
     return priceList
 
+bitcoinPrices = GetCryptoPrices()
+
+chatGPTPrompt = f"""I will provide you with a list of bitcoin prices for the last seven days. Could you provide me with a technical analysis of Bitcoin based on these prices. Here is what I want:
+Price Overview,
+Moving Averages,
+Relative Strength Index (RSI),
+Moving Average Convergence Divergence (MACD),
+Advice and Suggestion,
+Do I buy or sell?
+Please be as detailed, and explain in a way any beginner can understand.
+Here is the price list: {bitcoinPrices}
+"""
